@@ -24,23 +24,23 @@ class MainActivity : AppCompatActivity(), CellClick {
 
     private fun initViews() {
         val object1 = User()
-        object1.name = "Belal Khan"
-        object1.address = "Ranchi Jharkhand"
+        object1.name = "Example 1"
+        object1.address = "Example 1"
         users.add(object1)
 
         val object2 = User()
-        object2.name = "Ramiz Khan"
-        object2.address = "Ranchi Jharkhand"
+        object2.name = "Example 2"
+        object2.address = "Example 2"
         users.add(object2)
 
         val object3 = User()
-        object3.name = "Faiz Khan"
-        object3.address = "Ranchi Jharkhand"
+        object3.name = "Example 3"
+        object3.address = "Example 3"
         users.add(object3)
 
         val object4 = User()
-        object4.name = "Yashar Khan"
-        object4.address = "Ranchi Jharkhand"
+        object4.name = "Example 4"
+        object4.address = "Example 4"
         users.add(object4)
 
         for (i in 0 until users.size) {
@@ -59,20 +59,10 @@ class MainActivity : AppCompatActivity(), CellClick {
 
     override fun onListener(user: User, position: Int) {
         Log.e("User Name",user.name)
-        when (user.name) {
-            "Belal Khan" -> {
-                Toast.makeText(applicationContext,""+user.name,Toast.LENGTH_SHORT).show()
-            }
-            "Ramiz Khan" -> {
-                Toast.makeText(applicationContext,""+user.name,Toast.LENGTH_SHORT).show()
-            }
-            else -> {
-                val bundle = Bundle()
-                bundle.putString("input_txt", user.name)
-                val fragment = DetailFragment()
-                fragment.arguments = bundle
-                supportFragmentManager.beginTransaction().replace(R.id.frame,fragment).addToBackStack(null).commit()
-            }
-        }
+        val bundle = Bundle()
+        bundle.putString("input_txt", user.name)
+        val fragment = DetailFragment()
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction().replace(R.id.frame,fragment).addToBackStack(null).commit()
     }
 }
